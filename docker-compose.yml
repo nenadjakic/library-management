@@ -1,0 +1,51 @@
+version: '3.8'
+services:
+  country-service-database:
+    image: postgres:16.1
+    container_name: country-service-database
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${COUNTRY_DB_NAME}
+      POSTGRES_USER: ${COUNTRY_DB_USER}
+      POSTGRES_PASSWORD: ${COUNTRY_DB_PASSWORD}
+    logging:
+      options:
+        max-size: 10m
+        max-file: "5"
+    ports:
+      - "${COUNTRY_DB_PORT}:${COUNTRY_DB_PORT}"
+    volumes:
+      - country-service-data:/var/lib/postgresql/data
+      - ./country-service/.scripts/001-seed-data.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      library-management-network:
+
+  country-service:
+    build:
+      context: ./country-service
+      dockerfile: ./Dockerfile
+    container_name: country-service-app
+    depends_on:
+      - country-service-database
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://country-service-database:5432/${COUNTRY_DB_NAME}
+      SPRING_DATASOURCE_USERNAME: ${COUNTRY_DB_USER}
+      SPRING_DATASOURCE_PASSWORD: ${COUNTRY_DB_PASSWORD}
+      SPRING_PROFILES_ACTIVE: dev
+    volumes:
+      - type: volume
+        source: country-service-app
+        target: /var/country-service-app
+    networks:
+      library-management-network:
+    expose:
+      - ${COUNTRY_APP_PORT}
+    ports:
+      - "${COUNTRY_APP_PORT}:8080"
+volumes:
+  country-service-data:
+    name: country-service-data
+  country-service-app:
+    name: country-service-app
+networks:
+  library-management-network:
