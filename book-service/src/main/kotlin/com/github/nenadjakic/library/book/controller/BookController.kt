@@ -1,5 +1,6 @@
 package com.github.nenadjakic.library.book.controller
 
+import com.github.nenadjakic.library.book.client.CountryClient
 import com.github.nenadjakic.library.book.dto.BookAddRequest
 import com.github.nenadjakic.library.book.dto.BookResponse
 import com.github.nenadjakic.library.book.dto.BookUpdateRequest
@@ -19,7 +20,8 @@ import java.util.UUID
 @Validated
 open class BookController(
     private val modelMapper: ModelMapper,
-    private val bookService: BookService
+    private val bookService: BookService,
+    private val countryClient: CountryClient
 ) : CrudController<BookAddRequest, BookUpdateRequest, BookResponse, UUID> {
     override fun create(model: BookAddRequest): ResponseEntity<Void> {
         val book = modelMapper.map(model, Book::class.java)
@@ -47,7 +49,9 @@ open class BookController(
     }
 
     override fun findAll(): ResponseEntity<List<BookResponse>> {
-        TODO("Not yet implemented")
+        val x = countryClient.findAll()
+
+        return ResponseEntity.ok(null)
     }
 
     override fun findPage(pageNumber: Int, pageSize: Int?): ResponseEntity<Page<BookResponse>> {
