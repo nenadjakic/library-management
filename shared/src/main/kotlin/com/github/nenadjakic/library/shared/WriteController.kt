@@ -1,4 +1,4 @@
-package com.github.nenadjakic.library.country.controller
+package com.github.nenadjakic.library.shared
 
 import jakarta.validation.Valid
 import org.springframework.http.MediaType

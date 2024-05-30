@@ -2,6 +2,7 @@ package com.github.nenadjakic.library.country.service
 
 import com.github.nenadjakic.library.country.entity.Country
 import com.github.nenadjakic.library.country.repository.CountryRepository
+import com.github.nenadjakic.library.shared.CrudService
 import jakarta.persistence.EntityNotFoundException
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
@@ -18,7 +19,7 @@ class CountryService(
     override fun update(entity: Country): Country {
         val exists = countryRepository.existsById(entity.id!!)
         if (!exists) {
-            throw EntityNotFoundException("Country with given id does not exist.");
+            throw EntityNotFoundException("Country with given id does not exist.")
         }
         return countryRepository.save(entity)
     }

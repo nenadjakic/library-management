@@ -1,23 +1,49 @@
 package com.github.nenadjakic.library.country.controller
 
+import com.github.nenadjakic.library.country.dto.CountryAddRequest
+import com.github.nenadjakic.library.country.dto.CountryUpdateRequest
 import com.github.nenadjakic.library.country.entity.Country
 import com.github.nenadjakic.library.country.service.CountryService
+import com.github.nenadjakic.library.shared.CrudController
 import org.modelmapper.ModelMapper
 import org.springframework.data.domain.Page
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
-import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder
-import java.util.UUID
+import java.util.*
 
 @RestController
 @RequestMapping("/country")
-@Validated
 open class CountryController(
     private val modelMapper: ModelMapper,
     private val countryService: CountryService
-) : ReadController<Country, UUID> {
+) : CrudController<CountryAddRequest, CountryUpdateRequest, Country, UUID> {
+    override fun create(model: CountryAddRequest): ResponseEntity<Void> {
+        val country = modelMapper.map(model, Country::class.java)
+        val createdCountry = countryService.insert(country)
+
+        val location = ServletUriComponentsBuilder
+            .fromCurrentRequest()
+            .path("/{id}")
+            .buildAndExpand(createdCountry.id)
+            .toUri()
+
+        return ResponseEntity.created(location).build()
+    }
+
+    override fun update(model: CountryUpdateRequest): ResponseEntity<Void> {
+        val country = modelMapper.map(model, Country::class.java)
+        countryService.update(country)
+
+        return ResponseEntity.noContent().build()
+    }
+
+    override fun delete(id: UUID): ResponseEntity<Void> {
+        countryService.deleteById(id)
+        return ResponseEntity.noContent().build()
+    }
+
     override fun findAll(): ResponseEntity<List<Country>> {
         val countries = countryService.findAll()
 
@@ -25,7 +51,7 @@ open class CountryController(
     }
 
     override fun findPage(pageNumber: Int, pageSize: Int?): ResponseEntity<Page<Country>> {
-        val page = countryService.findPage(pageNumber, pageSize ?: 20);
+        val page = countryService.findPage(pageNumber, pageSize ?: 20)
         val response = page.map { modelMapper.map(it, Country::class.java) }
         return ResponseEntity.ok(response)
     }

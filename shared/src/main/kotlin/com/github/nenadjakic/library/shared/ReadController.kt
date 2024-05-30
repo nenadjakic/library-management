@@ -1,4 +1,4 @@
-package com.github.nenadjakic.library.country.controller
+package com.github.nenadjakic.library.shared
 
 import org.springframework.data.domain.Page
 import org.springframework.http.MediaType

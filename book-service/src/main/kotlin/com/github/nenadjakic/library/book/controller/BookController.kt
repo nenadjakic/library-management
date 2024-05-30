@@ -6,10 +6,10 @@ import com.github.nenadjakic.library.book.dto.BookResponse
 import com.github.nenadjakic.library.book.dto.BookUpdateRequest
 import com.github.nenadjakic.library.book.entity.Book
 import com.github.nenadjakic.library.book.service.BookService
+import com.github.nenadjakic.library.shared.CrudController
 import org.modelmapper.ModelMapper
 import org.springframework.data.domain.Page
 import org.springframework.http.ResponseEntity
-import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder
@@ -17,7 +17,6 @@ import java.util.UUID
 
 @RestController
 @RequestMapping("/book")
-@Validated
 open class BookController(
     private val modelMapper: ModelMapper,
     private val bookService: BookService,
@@ -55,7 +54,7 @@ open class BookController(
     }
 
     override fun findPage(pageNumber: Int, pageSize: Int?): ResponseEntity<Page<BookResponse>> {
-        val page = bookService.findPage(pageNumber, pageSize ?: 20);
+        val page = bookService.findPage(pageNumber, pageSize ?: 20)
         val response = page.map { modelMapper.map(it, BookResponse::class.java) }
         return ResponseEntity.ok(response)
     }

@@ -1,4 +1,4 @@
-package com.github.nenadjakic.library.book.service
+package com.github.nenadjakic.library.shared
 
 interface WriteService<T, ID> {
     fun insert(entity: T): T
