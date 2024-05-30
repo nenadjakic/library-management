@@ -24,4 +24,19 @@ class Book : Auditable<String>() {
 
     @Column(name = "page_count")
     var pageCount: Int? = null
+/*
+    @ManyToOne
+    @JoinColumn(name = "main_author_id", nullable = false)
+    lateinit var author: Author
+
+    @OneToMany
+    private var _otherAuthors: MutableSet<Author> = mutableSetOf()
+    var otherAuthors: Set<Author>
+        get() = _otherAuthors.toSet()
+        set(value) {
+            _otherAuthors.clear()
+            _otherAuthors.addAll(value)
+        }
+
+ */
 }

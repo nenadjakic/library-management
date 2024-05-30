@@ -3,9 +3,6 @@ package com.github.nenadjakic.library.book.entity
 import jakarta.persistence.Column
 import jakarta.persistence.EntityListeners
 import jakarta.persistence.MappedSuperclass
-import org.hibernate.annotations.SQLRestriction
-import org.hibernate.annotations.SoftDelete
-import org.hibernate.annotations.SoftDeleteType
 import org.springframework.data.annotation.CreatedBy
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.LastModifiedBy

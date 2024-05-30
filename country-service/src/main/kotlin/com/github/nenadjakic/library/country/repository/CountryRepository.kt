@@ -10,5 +10,6 @@ interface CountryRepository : JpaRepository<Country, UUID> {
     fun findByAlpha2Code(code: String): Country?
 
     fun findByNameStartingWithIgnoreCase(name: String): List<Country>
+
     fun findByNameStartingWithIgnoreCase(pageable: Pageable, name: String): Page<Country>
 }
