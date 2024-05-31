@@ -1,31 +1,24 @@
-<mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-        [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+<div>
+  <p-toolbar>
+    <div class="p-toolbar-group-start">
+      <div class="logo custom-mr-2">Library management</div>
+      <p-button
+        icon="pi pi-bars"
+        [text]="true"
+        severity="secondary"
+        class="custom-mr-2"
+        (click)="sidebarVisible = true"
+      ></p-button>
+    </div>
+    <div class="p-toolbar-group-end"></div>
+  </p-toolbar>
+  <p-sidebar [(visible)]="sidebarVisible">
+    <app-menu></app-menu>
+  </p-sidebar>
 
-        <mat-toolbar>Menu</mat-toolbar>
-
-        <mat-nav-list dense>
-            <mat-list-item routerLink="#"><mat-icon>dashboard</mat-icon>Dashboard</mat-list-item>
-             <mat-expansion-panel [class.mat-elevation-z0]="true" dense>
-                <mat-expansion-panel-header>
-                    Administration
-                </mat-expansion-panel-header>
-                <mat-nav-list dense>
-                    <a mat-list-item routerLink="countries"><mat-icon>map</mat-icon>Countries</a>
-                    <a mat-list-item routerLink="#"><mat-icon>notification_important</mat-icon>Notification</a>
-                </mat-nav-list>
-            </mat-expansion-panel>
-        </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <mat-toolbar color="primary">
-            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
-                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-            </button>
-            <span>Library management</span>
-        </mat-toolbar>
-        <!-- Add Content Here -->
-        <router-outlet>
-        </router-outlet>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+  <div style="flex: 1 1 auto;">
+    <div style="display: flex; align-items: center; justify-content: center; padding-top: 1rem;">
+            <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

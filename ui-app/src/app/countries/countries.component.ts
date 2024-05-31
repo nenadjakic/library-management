@@ -1,11 +1,12 @@
 import { Component, OnInit } from "@angular/core";
-
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {MatButtonModule} from '@angular/material/button';
-import {MatTableModule} from '@angular/material/table';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { TableModule } from 'primeng/table';
+import { CardModule } from 'primeng/card';
 import { Country } from "../model/country";
 import { CountryService } from "../service/country.service";
+import { ToolbarModule } from 'primeng/toolbar';
+import { ButtonModule } from 'primeng/button';
+import { ConfirmationService, MessageService } from "primeng/api";
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 const COUNTRIES: Country[] = [];
 
@@ -13,39 +14,37 @@ const COUNTRIES: Country[] = [];
   selector: 'app-countries',
   standalone: true,
   templateUrl: './countries.component.html',
-  imports: [ MatSlideToggleModule, MatButtonModule, MatTableModule, MatSnackBarModule]
+  styleUrl: './countries.component.css',
+  imports: [ TableModule, CardModule, ToolbarModule,
+    ButtonModule,ConfirmDialogModule
+   ],
+   providers: [MessageService, ConfirmationService]
 })
 export class CountriesComponent implements OnInit {
-  columns = [
-    {
-      columnDef: 'id',
-      header: 'Id',
-      cell: (element: Country) => `${element.id}`
-    },
-    {
-      columnDef: 'code',
-      header: 'Code',
-      cell: (element: Country) => `${element.alpha2Code}`
-    },
-    {
-      columnDef: 'name',
-      header: 'Name',
-      cell: (element: Country) => `${element.name}`
-    },
-  ]
-  title = 'Countries';
   countries = COUNTRIES;
-  displayedColumns: string[] = ['id', 'code', 'name'];
 
-  constructor(private countryService: CountryService, private snackBar: MatSnackBar) {}
+  constructor(private countryService: CountryService,
+    private confirmationService: ConfirmationService
+  ) {}
+
+  delete = (country: Country) => {
+    this.confirmationService.confirm({
+      message: 'Are you sure you want to delete the country:  ' + country.name + '?',
+      header: 'Confirm',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+          
+      }
+  });
+  }
+
   ngOnInit(): void {
     this.countryService.getCountries().subscribe({
       next: (countries) => {
         this.countries = countries
-        this.snackBar.open("Countries loaded.", undefined, { duration: 3000 });
       },
       error: (err) => {
-        this.snackBar.open("Problem with loading data.", undefined, { duration: 3000 });
+        
         console.error(err);
       },
       complete: () => {  },

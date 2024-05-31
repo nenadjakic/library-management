@@ -1,16 +1,46 @@
-<table mat-table [dataSource]="countries">
-  
-    @for (column of columns; track column) {
-        <ng-container [matColumnDef]="column.columnDef">
-          <th mat-header-cell *matHeaderCellDef>
-            {{column.header}}
-          </th>
-          <td mat-cell *matCellDef="let row">
-            {{column.cell(row)}}
-          </td>
-        </ng-container>
-      }
+<p-card header="Countries" [style]="{ 'width': '70vw'}">
+  <p-toolbar [style]="{ 'margin-bottom': '0.75rem' }">
+    <ng-template pTemplate="left">
+      <p-button severity="success" icon="pi pi-plus" class="mr-2" />
+      <p-button severity="danger" icon="pi pi-trash" />
+    </ng-template>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+    <ng-template pTemplate="right">
+      <p-button pRipple severity="help" icon="pi pi-upload" />
+    </ng-template>
+  </p-toolbar>
+
+  <p-table [value]="countries" [rows]="10" [paginator]="true" [rowHover]="true" dataKey="id">
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 10%;">Code</th>
+        <th>Name</th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-country>
+      <tr>
+        <td>{{ country.alpha2Code }}</td>
+        <td>{{ country.name }}</td>
+        <td>
+          <p-button 
+              pRipple 
+              icon="pi pi-pencil" 
+              class="mr-2" 
+              [rounded]="true" 
+              [outlined]="true" 
+              severity="success"  />
+          <p-button 
+              pRipple 
+              icon="pi pi-trash" 
+              severity="danger" 
+              [rounded]="true" 
+              [outlined]="true" 
+              (click)="delete(country)"/>
+      </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <p-confirmDialog [style]="{ width: '450px' }" />
+</p-card>
