@@ -1,5 +1,5 @@
 -- Your SQL goes here
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('5acc6a27-74d4-4f38-a875-13e2d1e2fafb','AF','Afghanistan'),
 	 ('fd376b1c-2168-41b2-91c6-6d6330f475cd','AL','Albania'),
 	 ('74d15008-e6a4-4159-a2c3-aa73f95c3fb0','DZ','Algeria'),
@@ -10,7 +10,7 @@ INSERT INTO public.countries (id,alpha2_code,"name") VALUES
 	 ('1d38f970-eec4-40d6-abe6-621989c708f5','AQ','Antarctica'),
 	 ('4af2ae98-e484-474c-b95f-e268cd6f748f','AG','Antigua and Barbuda'),
 	 ('cdddf213-569d-4b47-8a65-2531593e23ac','AR','Argentina');
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('895a0f5b-4b39-4a3d-95ff-2ebd4f0b1a97','AM','Armenia'),
 	 ('89b7fc09-7997-4b9d-bb7e-288629672355','AW','Aruba'),
 	 ('14ccf893-ae2a-43db-97d5-44dc475a5fd5','AU','Australia'),
@@ -21,7 +21,7 @@ INSERT INTO public.countries (id,alpha2_code,"name") VALUES
 	 ('b269e406-223a-41f5-a941-ee9b96a99410','BD','Bangladesh'),
 	 ('bbdf6f24-c667-42fb-9354-1d1162c7333b','BB','Barbados'),
 	 ('610437a2-f790-4560-8b35-42e2e8b23997','BY','Belarus');
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('c89d22c3-acb6-4547-b6a3-7051820c3689','BE','Belgium'),
 	 ('9241c67c-573f-4ef7-b965-9661ef5fdda4','BZ','Belize'),
 	 ('65b129e1-d17f-4186-934a-a5950fc9ea1c','BJ','Benin'),
@@ -32,7 +32,7 @@ INSERT INTO public.countries (id,alpha2_code,"name") VALUES
 	 ('cc4a74b1-b4ec-4bdc-98b7-be562b0a48cc','BA','Bosnia and Herzegovina'),
 	 ('2155ceb5-2da4-4e64-8e44-71f4bf7425bd','BW','Botswana'),
 	 ('bc531654-7663-4b94-9a06-2c412e88bbaf','BV','Bouvet Island');
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('634e462e-212a-4afa-bf43-b5f05b871d70','BR','Brazil'),
 	 ('8a554e2c-6d73-41df-b2a7-f5661987d5db','IO','British Indian Ocean Territory'),
 	 ('b6bec1d7-06c7-47d7-b8da-ef146df07bd4','BN','Brunei Darussalam'),
@@ -43,7 +43,7 @@ INSERT INTO public.countries (id,alpha2_code,"name") VALUES
 	 ('396c9cdd-e70a-4413-ba16-050dc6615b11','CM','Cameroon'),
 	 ('67686012-f3ef-4f51-8eb2-f4da2f144d60','CA','Canada'),
 	 ('af5d2fdd-eb0c-4c71-bda1-3eab6a1006d8','CV','Cape Verde');
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('27156f97-952b-4e15-ac84-4ed4d9ccd90f','KY','Cayman Islands'),
 	 ('00164bf0-64a4-49af-9d55-885f52eafc89','CF','Central African Republic'),
 	 ('cace8733-37ae-454a-9d6e-1de14796b3f4','TD','Chad'),
@@ -54,7 +54,7 @@ INSERT INTO public.countries (id,alpha2_code,"name") VALUES
 	 ('7d237c94-a1ac-45b7-b3d9-6bc627c7e871','CO','Colombia'),
 	 ('65c2d5eb-5b23-43cd-a465-98fd384092fa','KM','Comoros'),
 	 ('59d62582-073b-4d21-ab17-626b7dfe7f7b','CG','Congo');
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('56a79e5b-e5cf-45cc-8f49-6623497e3603','CD','Congo, the Democratic Republic of the'),
 	 ('a08d9bdd-db61-4f03-a4b2-e3180accd953','CK','Cook Islands'),
 	 ('cb4d5d35-5ef2-4b70-916f-4247acdea787','CR','Costa Rica'),
@@ -65,7 +65,7 @@ INSERT INTO public.countries (id,alpha2_code,"name") VALUES
 	 ('5759303f-af9d-4bbb-bb84-f67f8737f903','CZ','Czech Republic'),
 	 ('45757e59-36d0-483f-bc17-116669fe0d8e','CI','Côte d''Ivoire'),
 	 ('2369521d-c9fb-4213-8d69-1e224baf7a6b','DK','Denmark');
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('23e8ad74-cc31-4197-8c55-ff1a03f76ed9','DJ','Djibouti'),
 	 ('f43d5ed1-cd7b-45f9-bf39-0a2b50d87037','DM','Dominica'),
 	 ('e36d5c49-d101-475b-9d7d-5f40806309f2','DO','Dominican Republic'),
@@ -76,7 +76,7 @@ INSERT INTO public.countries (id,alpha2_code,"name") VALUES
 	 ('fef8725e-b4e8-46ac-9bce-80142e2990cc','ER','Eritrea'),
 	 ('0beb8108-26cc-4fb5-b757-08d004ece417','EE','Estonia'),
 	 ('792488fc-a962-4cf2-8e57-bd0e3a681d05','ET','Ethiopia');
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('2863efab-b307-4b53-ab45-acdf6e272ca6','FK','Falkland Islands (Malvinas)'),
 	 ('730ed166-aee2-4fab-a1bd-46383e2b7dbc','FO','Faroe Islands'),
 	 ('2edaa31b-7623-4d4e-9aeb-d94a4f624720','FJ','Fiji'),
@@ -87,7 +87,7 @@ INSERT INTO public.countries (id,alpha2_code,"name") VALUES
 	 ('e17f8d5f-007f-41ee-98ab-8548dec2b9c9','TF','French Southern Territories'),
 	 ('b560a647-4075-4135-a635-29eae8e1bade','GA','Gabon'),
 	 ('80de2883-6ce4-427c-b4ee-79a5ec052d2c','GM','Gambia');
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('863ad93f-5d02-44d5-b83f-175f3eaeb764','GE','Georgia'),
 	 ('9f83104f-a969-453d-8eb5-918dd8fcd16a','DE','Germany'),
 	 ('3e5e0334-4cef-44a8-837f-280baa5bbd56','GH','Ghana'),
@@ -98,7 +98,7 @@ INSERT INTO public.countries (id,alpha2_code,"name") VALUES
 	 ('56115a16-224c-4282-8176-610c794c2671','GP','Guadeloupe'),
 	 ('93fb0f28-3862-4c47-a674-faf9c056dcc0','GU','Guam'),
 	 ('0ce6bc8c-2c59-40d1-93f7-e11b24d0f509','GT','Guatemala');
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('cdca1cab-80ea-4a2f-a3d5-33a9cf690022','GG','Guernsey'),
 	 ('a099b16a-c2a8-4fc9-a2e7-69fab330f789','GN','Guinea'),
 	 ('9b6e5c5c-97ad-467c-9da6-8b4760c715d0','GW','Guinea-Bissau'),
@@ -109,7 +109,7 @@ INSERT INTO public.countries (id,alpha2_code,"name") VALUES
 	 ('0a745939-8081-4f74-9262-9c9e3f058222','HN','Honduras'),
 	 ('818ba8ab-aa30-4ebe-a4ce-afcd3214b0f9','HK','Hong Kong'),
 	 ('7fbc9dd1-a872-432a-8ad4-ccef43c50024','HU','Hungary');
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('4bffd2d5-f244-482f-83ba-d76cd64d9341','IS','Iceland'),
 	 ('0911b475-612a-42db-8f91-ee0775f831ef','IN','India'),
 	 ('d213154c-c502-403a-93bf-653a6bd646eb','ID','Indonesia'),
@@ -120,7 +120,7 @@ INSERT INTO public.countries (id,alpha2_code,"name") VALUES
 	 ('eb470013-547a-464c-b44f-754b7a4ea894','IL','Israel'),
 	 ('d5991d5f-e8c6-4f7a-9780-5cca0aba31ec','IT','Italy'),
 	 ('167a9ddf-b74a-449b-9820-3ec3816b8067','JM','Jamaica');
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('6ba6fc71-b8b1-4e1c-bec3-db7f92678fd9','JP','Japan'),
 	 ('96d0d55d-5500-44d6-be50-b5730d198b4e','JE','Jersey'),
 	 ('c1dc62db-0b65-4e09-8c16-92e4111509e5','JO','Jordan'),
@@ -131,7 +131,7 @@ INSERT INTO public.countries (id,alpha2_code,"name") VALUES
 	 ('2abef919-cc43-43be-8895-5f44758744b4','KR','Korea, Republic of'),
 	 ('3f26630e-c9e6-42ee-bf9d-eb4a510945e6','KW','Kuwait'),
 	 ('5e864d6f-d933-42ba-8b3e-2ea6a8866911','KG','Kyrgyzstan');
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('b2a9bb38-435a-44e0-ab1b-3bedd68c3c1c','LA','Lao People''s Democratic Republic'),
 	 ('e31f4b7f-5cd9-4b19-9245-48ac4a72485e','LV','Latvia'),
 	 ('08544379-8e95-4224-92e5-2196908dfcea','LB','Lebanon'),
@@ -142,7 +142,7 @@ INSERT INTO public.countries (id,alpha2_code,"name") VALUES
 	 ('46e9b5ba-d24a-46c8-8c86-545aa36a9466','LT','Lithuania'),
 	 ('fceb7157-3ca6-4fdc-adc9-a18c47ddc448','LU','Luxembourg'),
 	 ('47b32521-9087-4cca-bdc1-5fb9373e75b5','MO','Macao');
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('4c8c7071-dee1-4327-b379-3107c94da57d','MK','Macedonia, the Former Yugoslav Republic of'),
 	 ('f6f43344-9d72-4241-8aad-dd2462fe9fde','MG','Madagascar'),
 	 ('5487d7c0-ba5b-4071-874f-01db3eaa4374','MW','Malawi'),
@@ -153,7 +153,7 @@ INSERT INTO public.countries (id,alpha2_code,"name") VALUES
 	 ('64a999ed-eae4-41de-97af-434755b841f6','MH','Marshall Islands'),
 	 ('1f1b8d39-1aba-4a0c-9b7a-b218bc90ea43','MQ','Martinique'),
 	 ('5560b60b-82d3-4559-9d30-08845df4b06e','MR','Mauritania');
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('cbe01673-ff7f-4d96-8c97-95ef884e1d74','MU','Mauritius'),
 	 ('292e50c4-1546-4b3e-9250-e9d090b468f1','YT','Mayotte'),
 	 ('5454ff50-895e-427f-a924-0d99c6b85c47','MX','Mexico'),
@@ -164,7 +164,7 @@ INSERT INTO public.countries (id,alpha2_code,"name") VALUES
 	 ('f624ade7-9cf0-41af-b7df-8b313b9eef89','ME','Montenegro'),
 	 ('52c4e3fb-2bcc-45a0-b515-e1a2f9423a9b','MS','Montserrat'),
 	 ('724b2bf8-03e0-4f4a-9f80-d8d3479053a0','MA','Morocco');
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('9807e2c9-7cb7-40d4-89c0-3de757e5a55c','MZ','Mozambique'),
 	 ('d3931d43-8919-4557-ab19-ea73f18d606e','MM','Myanmar'),
 	 ('4af745e1-963d-4d4a-91a9-177a1eba55ac','NA','Namibia'),
@@ -175,7 +175,7 @@ INSERT INTO public.countries (id,alpha2_code,"name") VALUES
 	 ('d9618e87-0eaf-4a7b-a4bd-da300bdf9f0c','NZ','New Zealand'),
 	 ('77c1e35a-9072-491e-834b-1b513b5009d5','NI','Nicaragua'),
 	 ('138786d3-18f7-40c1-9bbb-e45bf3dde240','NE','Niger');
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('85e7eaa6-80c5-4609-88f1-52ecc248ec13','NG','Nigeria'),
 	 ('4d10d9b3-16b5-4576-bdf6-7c6eeeaee85e','NU','Niue'),
 	 ('dd5df81c-4da2-4222-92b3-f66edb4f8511','NF','Norfolk Island'),
@@ -186,7 +186,7 @@ INSERT INTO public.countries (id,alpha2_code,"name") VALUES
 	 ('ef834e26-a371-4606-9930-62df703aa1aa','PW','Palau'),
 	 ('9f7520a6-73b2-4e72-ae68-61a0226b384f','PS','Palestine, State of'),
 	 ('27f114fd-5189-4797-b560-560ccbdbec78','PA','Panama');
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('def19548-db4c-459e-a9f7-3c258e53fcaa','PG','Papua New Guinea'),
 	 ('2eab6459-f57b-43c0-aa1a-3be8328dfb61','PY','Paraguay'),
 	 ('9bcfe2af-4aac-41e0-b70d-8184fc58feaa','PE','Peru'),
@@ -197,7 +197,7 @@ INSERT INTO public.countries (id,alpha2_code,"name") VALUES
 	 ('e22a3f54-9355-4d85-b224-356d2c91a1f7','PR','Puerto Rico'),
 	 ('11881820-9326-4dc7-88bb-f758b116ae4c','QA','Qatar'),
 	 ('618b7332-a81f-4e24-964f-19dbaea79b9b','RO','Romania');
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('92fb2ced-2a2b-4a0f-ba02-33d948700fa4','RU','Russian Federation'),
 	 ('8b1d6737-5ecc-4c34-afed-ae8bea3bd827','RW','Rwanda'),
 	 ('9207aa7a-da02-4727-8bfa-4616c9bdf55b','RE','Réunion'),
@@ -208,7 +208,7 @@ INSERT INTO public.countries (id,alpha2_code,"name") VALUES
 	 ('01d72a56-3ee3-49e0-b3f0-cb0bfcccd713','MF','Saint Martin (French part)'),
 	 ('4516f27e-4ece-4611-9e10-9bc2d94cd3a5','PM','Saint Pierre and Miquelon'),
 	 ('8782211d-b94e-41ef-abe5-ba83ad235f74','VC','Saint Vincent and the Grenadines');
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('f151e06e-af91-40aa-bf80-47f184316704','WS','Samoa'),
 	 ('5bce9735-cfd7-41b0-a588-63b1e85e2453','SM','San Marino'),
 	 ('d3453767-1a6f-4f1b-ac78-3a1da4adf982','ST','Sao Tome and Principe'),
@@ -219,7 +219,7 @@ INSERT INTO public.countries (id,alpha2_code,"name") VALUES
 	 ('35688eed-a9b4-460f-a12e-32752e91b8c2','SL','Sierra Leone'),
 	 ('b52290f7-bf9d-4c47-b780-152359dc3a7c','SG','Singapore'),
 	 ('e10e533d-87a0-4744-b02b-c1ed21ce7236','SX','Sint Maarten (Dutch part)');
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('7236ba39-3234-49cf-80ab-0f6d7ea16a55','SK','Slovakia'),
 	 ('a9a7e295-e150-413c-af0b-85a67e30b680','SI','Slovenia'),
 	 ('1e1b2c77-4e3c-49e5-9dc6-1b491907b935','SB','Solomon Islands'),
@@ -230,7 +230,7 @@ INSERT INTO public.countries (id,alpha2_code,"name") VALUES
 	 ('2645639a-2bae-4ef6-a8f4-dbed20491cb2','ES','Spain'),
 	 ('51ac8413-23f3-445c-b46e-5ad5321008ec','LK','Sri Lanka'),
 	 ('c7f1bb98-be4b-4e1f-8211-9e776c598518','SD','Sudan');
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('8fa4153e-131a-4cf9-9647-5bcb4824808e','SR','Suriname'),
 	 ('743be005-3195-4e3c-95b5-6e2cedfecc9c','SJ','Svalbard and Jan Mayen'),
 	 ('b4df3f49-3bf2-438d-8511-bf86b627e7d4','SZ','Swaziland'),
@@ -241,7 +241,7 @@ INSERT INTO public.countries (id,alpha2_code,"name") VALUES
 	 ('1918e163-3572-4138-8455-7b04828168c2','TJ','Tajikistan'),
 	 ('256800ca-2cef-4561-8e51-e746d0011f60','TZ','Tanzania, United Republic of'),
 	 ('892fb251-3efc-4716-9a56-ba60b1d28c7d','TH','Thailand');
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('f34fdb37-bf81-4892-a397-06dbf445fec1','TL','Timor-Leste'),
 	 ('a2f7cffb-98a1-4f48-bd15-91c9707e3757','TG','Togo'),
 	 ('aebdd9cf-f3bb-4e39-833f-3e13518a0edb','TK','Tokelau'),
@@ -252,7 +252,7 @@ INSERT INTO public.countries (id,alpha2_code,"name") VALUES
 	 ('408b9ba8-f888-42da-abf2-02f934cef103','TM','Turkmenistan'),
 	 ('cc6098b4-e2c8-4d4a-b563-647fa37844cd','TC','Turks and Caicos Islands'),
 	 ('aea6cff2-910b-428d-8d6e-ea671ca47acf','TV','Tuvalu');
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('440bbff1-e8b9-4992-8da3-ae1d8ebb2382','UG','Uganda'),
 	 ('517879df-7c96-4475-8510-603426c78eb2','UA','Ukraine'),
 	 ('96bc82e5-2166-4c12-80dd-94aba1d7d92c','AE','United Arab Emirates'),
@@ -263,7 +263,7 @@ INSERT INTO public.countries (id,alpha2_code,"name") VALUES
 	 ('54327c4a-803b-4069-93dc-35604966fa22','UZ','Uzbekistan'),
 	 ('9c4aaafb-7567-4a14-9fcc-1233b398adf8','VU','Vanuatu'),
 	 ('bf804c1b-8ecc-494e-9e53-12c4647ef9c1','VE','Venezuela, Bolivarian Republic of');
-INSERT INTO public.countries (id,alpha2_code,"name") VALUES
+INSERT INTO public.country (id,alpha2_code,"name") VALUES
 	 ('7be138fa-38e0-4594-89c2-673bb3331173','VN','Viet Nam'),
 	 ('04b58d1a-fb87-4716-a46c-5824f7c7a697','VG','Virgin Islands, British'),
 	 ('cf932ec2-3283-465a-847a-81438bfd98b8','VI','Virgin Islands, U.S.'),
