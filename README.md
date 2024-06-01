@@ -8,6 +8,10 @@ This repository contains a collection of microservices for managing various aspe
 ## Table of Contents
 - [Services](#services)
 - [Getting Started](#getting-started)
+- [Dockerize Application](#dockerize-application)
+  - [Installing Docker and Docker Compose](#installing-docker-and-docker-compose)
+  - [Running Application with Docker Compose](#running-application-with-docker-compose)
+- [License](#license)
 
 ## Services
 - [Shared](./shared/README.md): Common interfaces for services and REST controllers.
