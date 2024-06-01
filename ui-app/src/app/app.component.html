@@ -1,4 +1,5 @@
-<div>
+<div>    
+    <p-toast position="top-right"></p-toast>
   <p-toolbar>
     <div class="p-toolbar-group-start">
       <div class="logo custom-mr-2">Library management</div>
@@ -16,9 +17,16 @@
     <app-menu></app-menu>
   </p-sidebar>
 
-  <div style="flex: 1 1 auto;">
-    <div style="display: flex; align-items: center; justify-content: center; padding-top: 1rem;">
-            <router-outlet></router-outlet>
+  <div style="flex: 1 1 auto">
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 1rem;
+      "
+    >
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

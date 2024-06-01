@@ -5,11 +5,14 @@ import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
 import jakarta.persistence.Table
+import org.hibernate.annotations.SoftDelete
+import org.hibernate.annotations.SoftDeleteType
 import java.util.UUID
 
 @JsonIgnoreProperties(value = [ "createdDateTime", "createdBy", "lastModifiedDate", "lastModifiedBy" ])
 @Entity
 @Table(name = "country")
+@SoftDelete(columnName = "deleted", strategy = SoftDeleteType.DELETED)
 class Country : Auditable<String>() {
 
     @Id

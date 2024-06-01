@@ -1,4 +1,4 @@
-<p-card header="Countries" [style]="{ 'width': '70vw'}">
+<p-card header="Countries" [style]="{ width: '70vw' }">
   <p-toolbar [style]="{ 'margin-bottom': '0.75rem' }">
     <ng-template pTemplate="left">
       <p-button severity="success" icon="pi pi-plus" class="mr-2" />
@@ -10,11 +10,21 @@
     </ng-template>
   </p-toolbar>
 
-  <p-table [value]="countries" [rows]="10" [paginator]="true" [rowHover]="true" dataKey="id">
+  <p-table
+    [value]="countries"
+    [rows]="rows"
+    [paginator]="true"
+    [rowsPerPageOptions]="[25, 50, 75, 100]"
+    [totalRecords]="totalRecords"
+    [rowHover]="true"
+    dataKey="id"
+    [lazy]="true"
+    (onPage)="pageChange($event)"
+  >
     <ng-template pTemplate="header">
       <tr>
-        <th style="width: 10%;">Code</th>
-        <th>Name</th>
+        <th style="width: 10vh">Code</th>
+        <th style="width: 70vh">Name</th>
         <th></th>
       </tr>
     </ng-template>
@@ -23,21 +33,25 @@
         <td>{{ country.alpha2Code }}</td>
         <td>{{ country.name }}</td>
         <td>
-          <p-button 
-              pRipple 
-              icon="pi pi-pencil" 
-              class="mr-2" 
-              [rounded]="true" 
-              [outlined]="true" 
-              severity="success"  />
-          <p-button 
-              pRipple 
-              icon="pi pi-trash" 
-              severity="danger" 
-              [rounded]="true" 
-              [outlined]="true" 
-              (click)="delete(country)"/>
-      </td>
+          <p-button
+            pRipple
+            icon="pi pi-pencil"
+            class="mr-2"
+            [rounded]="true"
+            [outlined]="true"
+            severity="success"
+            size="small"
+          />
+          <p-button
+            pRipple
+            icon="pi pi-trash"
+            severity="danger"
+            [rounded]="true"
+            [outlined]="true"
+            (click)="delete(country)"
+            size="small"
+          />
+        </td>
       </tr>
     </ng-template>
   </p-table>
