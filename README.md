@@ -12,9 +12,10 @@ This repository contains a collection of microservices for managing various aspe
 ## Services
 - [Shared](./shared/README.md): Common interfaces for services and REST controllers.
 - [Country Service](./country-service/README.md): Manages country information and related operations.
-- [Book Service](./book-service/README.md): Manages book inventory and related operations.
+- [Book Service](./book-service/README.md): Manages book inventory and related operations. In progress.
 - [User Service](./user-service/README.md): In progress.
 - [Borrowing Service](./borrowing-service/README.md): In progress.
+- [UI App](./ui-app/README.md): Front-end app. In progress.
 
 ## Getting Started
 To get started with the library management system, clone the repository and follow the instructions in each service's `README.md` file.

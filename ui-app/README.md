@@ -1,4 +1,7 @@
-# UiApp
+# ui-app
+
+## Description
+This UI application is built using Angular and PrimeNG, serving as the front-end for the library management system. It provides an intuitive user interface for managing library resources, including books, members, and transactions.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.0.
 
