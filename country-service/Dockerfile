@@ -1,12 +1,15 @@
 FROM eclipse-temurin:21 AS build
 
-WORKDIR /app
+WORKDIR /app/shared
+COPY shared/ .
 
-COPY src/ ./src/
-COPY build.gradle.kts .
-COPY gradlew .
-COPY settings.gradle.kts .
-COPY gradle/ ./gradle
+WORKDIR /app/country-service
+
+COPY country-service/src/ ./src/
+COPY country-service/build.gradle.kts .
+COPY country-service/gradlew .
+COPY country-service/settings.gradle.kts .
+COPY country-service/gradle/ ./gradle
 
 RUN ./gradlew clean build
 
@@ -14,5 +17,5 @@ FROM eclipse-temurin:21
 
 WORKDIR /app
 
-COPY --from=build /app/build/libs/country-service.jar .
+COPY --from=build /app/country-service/build/libs/country-service.jar .
 CMD ["java", "-jar", "./country-service.jar"]

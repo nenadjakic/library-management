@@ -1,0 +1,38 @@
+#!/bin/bash
+
+echo "Init country-db"
+
+psql -v ON_ERROR_STOP=1 --username "$LIBRARY_DB_USER" <<-EOSQL
+
+    CREATE DATABASE "country-db";
+    CREATE USER $COUNTRY_DB_USER WITH encrypted password '$COUNTRY_DB_PASSWORD';
+
+    GRANT ALL PRIVILEGES ON DATABASE "country-db" to $COUNTRY_DB_USER;
+EOSQL
+
+psql -v ON_ERROR_STOP=1 --username "$LIBRARY_DB_USER" --dbname "country-db" <<-EOSQL
+    GRANT ALL ON ALL TABLES IN SCHEMA public TO $COUNTRY_DB_USER;
+    GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO $COUNTRY_DB_USER;
+    GRANT ALL ON ALL FUNCTIONS IN SCHEMA public TO $COUNTRY_DB_USER;
+    GRANT ALL ON SCHEMA public TO $COUNTRY_DB_USER;
+EOSQL
+
+echo "End init country-db"
+echo "Init book-db"
+
+psql -v ON_ERROR_STOP=1 --username "$LIBRARY_DB_USER" <<-EOSQL
+
+    CREATE DATABASE "book-db";
+    CREATE USER $BOOK_DB_USER WITH encrypted password '$BOOK_DB_PASSWORD';
+
+    GRANT ALL PRIVILEGES ON DATABASE "book-db" to $BOOK_DB_USER;
+EOSQL
+
+psql -v ON_ERROR_STOP=1 --username "$LIBRARY_DB_USER" --dbname "book-db" <<-EOSQL
+    GRANT ALL ON ALL TABLES IN SCHEMA public TO $BOOK_DB_USER;
+    GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO $BOOK_DB_USER;
+    GRANT ALL ON ALL FUNCTIONS IN SCHEMA public TO $BOOK_DB_USER;
+    GRANT ALL ON SCHEMA public TO $BOOK_DB_USER;
+EOSQL
+
+echo "End init book-db"

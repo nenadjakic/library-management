@@ -1,51 +1,101 @@
 version: '3.8'
 services:
-  country-service-database:
+  library-database:
     image: postgres:16.1
-    container_name: country-service-database
+    container_name: library-database
     restart: unless-stopped
     environment:
-      POSTGRES_DB: ${COUNTRY_DB_NAME}
-      POSTGRES_USER: ${COUNTRY_DB_USER}
-      POSTGRES_PASSWORD: ${COUNTRY_DB_PASSWORD}
+      POSTGRES_USER: ${LIBRARY_DB_USER}
+      POSTGRES_PASSWORD: ${LIBRARY_DB_PASSWORD}
+      COUNTRY_DB_USER: ${COUNTRY_DB_USER}
+      COUNTRY_DB_PASSWORD: ${COUNTRY_DB_PASSWORD}
+      BOOK_DB_USER: ${BOOK_DB_USER}
+      BOOK_DB_PASSWORD: ${BOOK_DB_PASSWORD}
     logging:
       options:
         max-size: 10m
         max-file: "5"
     ports:
-      - "${COUNTRY_DB_PORT}:${COUNTRY_DB_PORT}"
+      - "${LIBRARY_DB_PORT}:5432"
     volumes:
-      - country-service-data:/var/lib/postgresql/data
-      - ./country-service/.scripts/001-seed-data.sql:/docker-entrypoint-initdb.d/init.sql
+      - library-data:/var/lib/postgresql/data
+      - ./.deploy/postgres/001-create_databases.sh:/docker-entrypoint-initdb.d/init.sh
     networks:
       library-management-network:
 
   country-service:
     build:
-      context: ./country-service
-      dockerfile: ./Dockerfile
+      context: .
+      dockerfile: ./country-service/Dockerfile
     container_name: country-service-app
     depends_on:
-      - country-service-database
+      - library-database
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://country-service-database:5432/${COUNTRY_DB_NAME}
+      SPRING_DATASOURCE_URL: jdbc:postgresql://library-database:5432/country-db
       SPRING_DATASOURCE_USERNAME: ${COUNTRY_DB_USER}
       SPRING_DATASOURCE_PASSWORD: ${COUNTRY_DB_PASSWORD}
       SPRING_PROFILES_ACTIVE: dev
     volumes:
       - type: volume
-        source: country-service-app
-        target: /var/country-service-app
+        source: country-service-data
+        target: /var/country-service-data
     networks:
       library-management-network:
     expose:
       - ${COUNTRY_APP_PORT}
     ports:
-      - "${COUNTRY_APP_PORT}:8080"
+      - "${COUNTRY_APP_PORT}:6061"
+
+  book-service:
+    build:
+      context: .
+      dockerfile: ./book-service/Dockerfile
+    container_name: book-service-app
+    depends_on:
+      - library-database
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://library-database:5432/book-db
+      SPRING_DATASOURCE_USERNAME: ${BOOK_DB_USER}
+      SPRING_DATASOURCE_PASSWORD: ${BOOK_DB_PASSWORD}
+      SPRING_PROFILES_ACTIVE: dev
+    volumes:
+      - type: volume
+        source: book-service-data
+        target: /var/book-service-data
+    networks:
+      library-management-network:
+    expose:
+      - ${BOOK_APP_PORT}
+    ports:
+      - "${BOOK_APP_PORT}:6062"
+
+  ui-app:
+    build:
+      context: .
+      dockerfile: ./ui-app/Dockerfile
+    container_name: ui-app
+    depends_on:
+      - country-service
+      - book-service
+    volumes:
+      - type: volume
+        source: ui-app-data
+        target: /var/ui-app-data
+    networks:
+      library-management-network:
+    expose:
+      - ${UI_APP_PORT}
+    ports:
+    - "${UI_APP_PORT}:4200"
+
 volumes:
+  library-data:
+    name: library-data
   country-service-data:
     name: country-service-data
-  country-service-app:
-    name: country-service-app
+  book-service-data:
+    name: book-service-data
+  ui-app-data:
+    name: ui-app-data
 networks:
   library-management-network:
