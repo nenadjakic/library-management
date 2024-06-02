@@ -1,13 +1,15 @@
 FROM eclipse-temurin:21 AS build
 
-WORKDIR /app
+WORKDIR /app/shared
+COPY shared/ .
 
-COPY src/ ./src/
-COPY build.gradle.kts .
-COPY gradle.properties .
-COPY gradlew .
-COPY settings.gradle.kts .
-COPY gradle/ ./gradle
+WORKDIR /app/book-service
+
+COPY book-service/src/ ./src/
+COPY book-service/build.gradle.kts .
+COPY book-service/gradlew .
+COPY book-service/settings.gradle.kts .
+COPY book-service/gradle/ ./gradle
 
 RUN ./gradlew clean build
 
@@ -15,5 +17,5 @@ FROM eclipse-temurin:21
 
 WORKDIR /app
 
-COPY --from=build /app/build/libs/book-service.jar .
+COPY --from=build /app/book-service/build/libs/book-service.jar .
 CMD ["java", "-jar", "./book-service.jar"]
