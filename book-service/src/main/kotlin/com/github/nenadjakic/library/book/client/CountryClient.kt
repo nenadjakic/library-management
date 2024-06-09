@@ -1,7 +1,7 @@
 package com.github.nenadjakic.library.book.client
 
 import com.github.nenadjakic.library.book.client.model.Country
-import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker
+import com.github.nenadjakic.library.book.configuration.PUBLISHER_CACHE_COUNTRY_GENERAL
 import org.springframework.cache.annotation.Cacheable
 import org.springframework.cloud.openfeign.FeignClient
 import org.springframework.web.bind.annotation.GetMapping
@@ -14,6 +14,6 @@ interface CountryClient {
     fun findAll(): List<Country>
 
     @GetMapping("/{id}")
-    @Cacheable(cacheNames = [ "country-cache" ], key = "#id")
+    @Cacheable(cacheNames = [ PUBLISHER_CACHE_COUNTRY_GENERAL ], key = "#id", unless = "#result == null")
     fun findById(@PathVariable("id") id: UUID): Country?
 }
