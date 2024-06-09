@@ -3,11 +3,8 @@ package com.github.nenadjakic.library.book.controller
 import com.github.nenadjakic.library.book.client.CountryClient
 import com.github.nenadjakic.library.book.client.model.Country
 import com.github.nenadjakic.library.book.dto.PublisherResponse
-import com.github.nenadjakic.library.book.entity.Publisher
 import com.github.nenadjakic.library.book.service.PublisherService
 import com.github.nenadjakic.library.shared.async.ReadController
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import org.modelmapper.ModelMapper
@@ -17,8 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import org.springframework.web.servlet.function.ServerResponse.async
-import java.util.UUID
+import java.util.*
 import java.util.stream.Collectors
 
 @RestController
@@ -47,10 +43,10 @@ open class PublisherController(
     @GetMapping("/{id}")
     override suspend fun findById(@PathVariable id: UUID): ResponseEntity<PublisherResponse> = coroutineScope {
         val publisher = publisherService.findById(id)
-        var response = publisher?.let {
+        val response = publisher?.let {
             val country = async { findCountryById(it.countryId) }.await()
             if (country != null) {
-                return@let PublisherResponse(publisher.id!!, publisher.name!!, country!!)
+                return@let PublisherResponse(publisher.id!!, publisher.name, country)
             } else {
                 return@let null
             }
@@ -63,5 +59,5 @@ open class PublisherController(
 
     suspend fun findCountriesByIds(ids: List<UUID>): List<Country> = mutableListOf()
 
-    fun findCountryById(id: UUID, countries: List<Country>): Country = countries.parallelStream().filter { it.id.equals(id) }.findAny().get()
+    fun findCountryById(id: UUID, countries: List<Country>): Country = countries.parallelStream().filter { it.id == id }.findAny().get()
 }
